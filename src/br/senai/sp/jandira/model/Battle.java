@@ -35,10 +35,27 @@ public class Battle {
 
             String attack = scanner.nextLine();
 
+
             if (attack.equalsIgnoreCase("V")){
                 System.out.println("=0=0=0=0=0=0= -- O Player atacou =0=0=0=0=0=0=");
 
                 int danoPlayer = ((int) (Math.random()*20) + 1);
+
+
+                System.out.println("ENEMY => Escolha o número de 1 a 5 para tentar Defesa: ");
+                int defense = scanner.nextInt();
+                scanner.nextLine();
+
+                int playerDefense = ((int) (Math.random()*5) + 1);
+
+                if (defense == playerDefense) {
+
+                    System.out.println("Parabéns!! O ataque de " + danoPlayer + " foi defendido.");
+                    danoPlayer = danoPlayer - playerDefense;
+
+                } else {
+                    System.out.println("A defesa falhou!!");
+                }
 
                 enemy.subtrairLife(danoPlayer);
 
@@ -50,6 +67,19 @@ public class Battle {
 
                 int danoEnemy = ((int) (Math.random()*20) + 1);
 
+                System.out.println("PLAYER => Escolha o número de 1 a 5 para tentar Defesa: ");
+                int defense = scanner.nextInt();
+                scanner.nextLine();
+                int playerDefense = ((int) (Math.random()*5) + 1);
+                if (defense == playerDefense) {
+
+                    System.out.println("Parabéns!! O ataque de " + danoEnemy + " foi defendido.");
+                    danoEnemy = danoEnemy - playerDefense;
+
+                } else {
+                    System.out.println("A defesa falhou!!");
+                }
+
                 player.subtrairLife(danoEnemy);
 
                 System.out.println("O dano gerado foi de: " + danoEnemy);
@@ -58,13 +88,24 @@ public class Battle {
             } else {
                 System.out.println("Digite uma tecla válida!");
             }
-
-
         }
 
     }
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
